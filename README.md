@@ -15,10 +15,9 @@ This project is an attempt to develop an AI capable of playing **Mini Metro**, a
 Since direct data extraction is not available, two methods were considered:
 1. **Image Recognition (Current Method)** ✅
    - Used **MSS** and **Tesseract** to detect stations, lines, and score.
-   - Poor accuracy due to overlapping elements and false detections.
+   - Currently poor accuracy due to overlapping elements and false detections (e.g Areas for Improvement).
 2. **Manual Data Input (Failed)** ❌
    - The user manually inputs game state updates using an overlay.
-   - Press **Shift+G** to "start a game" and press **Shift+R** to toggle data input mode.
    - Some gameplay elements of the game are too complicated for me to implement (extending a line from the center is one 
      example, there are others)
 
@@ -30,7 +29,7 @@ Since direct data extraction is not available, two methods were considered:
 ## 📌 Next Steps
 - Explore alternative **computer vision techniques** for better recognition.
 - Investigate potential ways to **hook into game memory**.
-- Improve the **manual input system** for better usability ?
+- Maybe improve the **manual input system** for better usability ?
 - Implement basic AI logic to **suggest** metro expansions based on available data.
 
 ## 🤝 Contributing
