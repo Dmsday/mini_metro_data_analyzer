@@ -1,7 +1,5 @@
-1. OCR Detection Robustness
-python
-Copier
-Modifier
+## 1. OCR Detection Robustness
+
 def detect_score(image, win_width, win_height, region=None):
     # ...
     text = pytesseract.image_to_string(thresh, config=config)
@@ -10,92 +8,87 @@ def detect_score(image, win_width, win_height, region=None):
         return int(digits)
     except ValueError:
         return 0
-The OCR detection could be improved with:
 
-Consistency checks on detected values (comparison with previous values)
-Adaptive image preprocessing based on lighting conditions
-More advanced filtering to reduce noise
-2. Performance Optimization
-The program analyzes full images at each iteration, which can be slow:
+The OCR detection could be improved with :
+- Consistency checks on detected values (comparison with previous values)
+- Adaptive image preprocessing based on lighting conditions
+- More advanced filtering to reduce noise
 
-python
-Copier
-Modifier
+
+## 2. Performance Optimization
+The program analyzes full images at each iteration, which can be slow :
+
 data = analyze_game_image(image, window_box[2], window_box[3], detection_regions)
-Suggestions:
 
-Implement a more efficient multi-threaded processing approach
-Selectively analyze regions that change frequently
-Reduce the analysis frequency (currently every second)
-3. Error Handling
-The current code contains generic try-except blocks:
+Suggestions :
+- Implement a more efficient multi-threaded processing approach
+- Selectively analyze regions that change frequently
+- Potentially reduce the analysis frequency (currently every second)
 
-python
-Copier
-Modifier
+
+## 3. Error Handling
+The current code contains generic try-except blocks :
+
 try:
     # code
 except Exception as e:
     print(f"Error in analysis loop: {e}")
     time.sleep(1)
-Possible improvements:
 
-Handle specific exceptions based on type
-Log errors into a file instead of just printing them to the console
-Implement a more sophisticated error recovery strategy
-4. User Interface
-The current interface is functional but basic:
+Possible improvements :
+- Handle specific exceptions based on type
+- Log errors into a file instead of just printing them to the console
+- Implement a more sophisticated error recovery strategy
 
-python
-Copier
-Modifier
+
+## 4. User Interface
+The current interface is functional but basic :
+
 tk.Label(root, text="Score:").grid(row=0, column=0, sticky="e")
 tk.Entry(root, textvariable=score_var, width=20).grid(row=0, column=1)
-Potential improvements:
 
-A more modern interface using frameworks like PyQt or Kivy
-Graphical visualization of trends (e.g., score over time)
-More detailed information on detected elements
-5. Complex Element Detection
+
+Potential improvements :
+- A more modern interface using frameworks like PyQt or Kivy
+- Graphical visualization of trends (e.g., score over time)
+- More detailed information on detected elements
+
+
+## 5. Complex Element Detection
 Detection of trains, stations, and lines relies on simple methods:
 
-python
-Copier
-Modifier
 def detect_stations(image, win_width, win_height, region=None):
     # ...
     peri = cv2.arcLength(cnt, True)
     approx = cv2.approxPolyDP(cnt, 0.04 * peri, True)
-Improvements:
 
-Use machine learning algorithms (e.g., CNNs) for shape detection
-Implement object tracking between frames for consistency
-Develop a more robust approach to distinguish different station types
-6. More Flexible Configuration
-The program currently uses a simple JSON file for configuration:
+Improvements :
+- Use machine learning algorithms (e.g., CNNs) for shape detection
+- Implement object tracking between frames for consistency
+- Develop a more robust approach to distinguish different station types
 
-python
-Copier
-Modifier
+
+## 6. More Flexible Configuration
+The program currently uses a simple JSON file for configuration :
+
 if os.path.exists(CONFIG_FILE):
     try:
         with open(CONFIG_FILE, "r") as f:
             detection_regions = json.load(f)
+
 Possible enhancements:
+- A more comprehensive configuration interface (thresholds, OCR settings, etc.)
+- Configuration profiles for different screen resolutions
+- Automatic calibration of detection regions
 
-A more comprehensive configuration interface (thresholds, OCR settings, etc.)
-Configuration profiles for different screen resolutions
-Automatic calibration of detection regions
-7. Documentation & Modularity
-The code lacks detailed documentation, and some functions are quite long:
 
-python
-Copier
-Modifier
+## 7. Documentation & Modularity
+The code lacks detailed documentation, and some functions are quite long :
+
 def detect_trains(image, win_width, win_height, region=None):
     # Long and complex function
-Suggested improvements:
 
-Better documentation (more detailed docstrings, examples)
-Refactoring into smaller, more modular classes and methods
-Unit tests to validate detection functions
+Suggested improvements :
+- Better documentation (more detailed docstrings, examples)
+- Refactoring into smaller, more modular classes and methods
+- Unit tests to validate detection functions
