@@ -23,7 +23,7 @@ data = analyze_game_image(image, window_box[2], window_box[3], detection_regions
 Suggestions :
 - Implement a more efficient multi-threaded processing approach
 - Selectively analyze regions that change frequently
-- Potentially reduce the analysis frequency (currently every second)
+- Potentially reduce the analysis frequency (currently every second) and add an option to change it accordind to the user
 
 
 ## 3. Error Handling
