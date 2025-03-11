@@ -1,4 +1,3 @@
-# visualizer.py
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
@@ -8,7 +7,7 @@ import numpy as np
 import pygetwindow as gw
 import json
 import os
-from detectors import get_absolute_region, analyze_game_image
+from detectors_py import get_absolute_region, analyze_game_image
 
 CONFIG_FILE = "regions_config.json"
 
