@@ -1,3 +1,8 @@
+✅ Finished and on point
+❌ Not done or in progress
+✅❌Done but needs improvement
+
+
 ## 1. OCR Detection Robustness
 
 def detect_score(image, win_width, win_height, region=None):
@@ -10,9 +15,9 @@ def detect_score(image, win_width, win_height, region=None):
         return 0
 
 The OCR detection could be improved with :
-- Consistency checks on detected values (comparison with previous values)
-- Adaptive image preprocessing based on lighting conditions
-- More advanced filtering to reduce noise
+- Consistency checks on detected values (comparison with previous values) ❌
+- Adaptive image preprocessing based on lighting conditions ❌
+- More advanced filtering to reduce noise ❌
 
 
 ## 2. Performance Optimization
@@ -21,9 +26,9 @@ The program analyzes full images at each iteration, which can be slow :
 data = analyze_game_image(image, window_box[2], window_box[3], detection_regions)
 
 Suggestions :
-- Implement a more efficient multi-threaded processing approach
-- Selectively analyze regions that change frequently
-- Potentially reduce the analysis frequency (currently every second) and add an option to change it accordind to the user
+- Implement a more efficient multi-threaded processing approach ❌
+- Selectively analyze regions that change frequently ❌
+- Potentially reduce the analysis frequency (currently every second) and add an option to change it accordind to the user ❌
 
 
 ## 3. Error Handling
@@ -36,9 +41,9 @@ except Exception as e:
     time.sleep(1)
 
 Possible improvements :
-- Handle specific exceptions based on type
-- Log errors into a file instead of just printing them to the console
-- Implement a more sophisticated error recovery strategy
+- Handle specific exceptions based on type ❌
+- Log errors into a file instead of just printing them to the console ❌
+- Implement a more sophisticated error recovery strategy ❌
 
 
 ## 4. User Interface
@@ -49,9 +54,9 @@ tk.Entry(root, textvariable=score_var, width=20).grid(row=0, column=1)
 
 
 Potential improvements :
-- A more modern interface using frameworks like PyQt or Kivy
-- Graphical visualization of trends (e.g., score over time)
-- More detailed information on detected elements
+- A more modern interface using frameworks like PyQt or Kivy ❌
+- Graphical visualization of trends (e.g., score over time) ❌
+- More detailed information on detected elements ❌
 
 
 ## 5. Complex Element Detection
@@ -63,9 +68,9 @@ def detect_stations(image, win_width, win_height, region=None):
     approx = cv2.approxPolyDP(cnt, 0.04 * peri, True)
 
 Improvements :
-- Use machine learning algorithms (e.g., CNNs) for shape detection
-- Implement object tracking between frames for consistency
-- Develop a more robust approach to distinguish different station types
+- Use machine learning algorithms (e.g., CNNs) for shape detection ❌
+- Implement object tracking between frames for consistency ❌
+- Develop a more robust approach to distinguish different station types ❌
 
 
 ## 6. More Flexible Configuration
@@ -77,9 +82,9 @@ if os.path.exists(CONFIG_FILE):
             detection_regions = json.load(f)
 
 Possible enhancements:
-- A more comprehensive configuration interface (thresholds, OCR settings, etc.)
-- Configuration profiles for different screen resolutions
-- Automatic calibration of detection regions
+- A more comprehensive configuration interface (thresholds, OCR settings, etc.) ❌
+- Configuration profiles for different screen resolutions ❌
+- Automatic calibration of detection regions ❌
 
 
 ## 7. Documentation & Modularity
@@ -89,6 +94,6 @@ def detect_trains(image, win_width, win_height, region=None):
     # Long and complex function
 
 Suggested improvements :
-- Better documentation (more detailed docstrings, examples)
-- Refactoring into smaller, more modular classes and methods
-- Unit tests to validate detection functions
+- Better documentation (more detailed docstrings, examples) ❌
+- Refactoring into smaller, more modular classes and methods ❌
+- Unit tests to validate detection functions ❌
